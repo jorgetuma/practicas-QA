@@ -1,0 +1,1 @@
+## Para ejecutar las pruebas unitarias es necesario ejecutar la tarea "test" de gradle que se encuentra en el plugin "verification".
