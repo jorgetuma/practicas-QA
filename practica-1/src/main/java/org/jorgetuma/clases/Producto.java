@@ -9,6 +9,14 @@ public class Producto {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+
+        if(precio < 0) {
+            throw new IllegalArgumentException("El precio no puede ser negativo");
+        }
+
+        if(nombre == null || nombre.isEmpty() || nombre.equalsIgnoreCase(" ")) {
+            throw new IllegalArgumentException("El producto debe tener un nombre");
+        }
     }
 
     public int getId() {
