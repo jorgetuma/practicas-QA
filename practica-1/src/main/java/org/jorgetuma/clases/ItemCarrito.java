@@ -7,6 +7,14 @@ public class ItemCarrito {
     public ItemCarrito(Producto producto, int cantidad) {
         this.producto = producto;
         this.cantidad = cantidad;
+
+        if(cantidad <= 0) {
+            throw new IllegalArgumentException("La cantidad del item debe ser mayor a 0");
+        }
+
+        if(producto == null) {
+            throw new IllegalArgumentException("Producto del item no puede ser nulo");
+        }
     }
 
     public Producto getProducto() {
