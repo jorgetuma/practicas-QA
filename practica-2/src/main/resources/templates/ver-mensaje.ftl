@@ -16,13 +16,18 @@
                     <h4>Contacto</h4>
                 </div>
                 <div class="card-body">
-                    <p><strong>Nombre:</strong> Jorge Tuma</p>
-                    <p><strong>Correo Electrónico:</strong> jt@ejemplo.com</p>
-                    <p><strong>Mensaje:</strong> Este es un mensaje de ejemplo.</p>
+                    <p><strong>Nombre:</strong> ${nombre}</p>
+                    <p><strong>Correo Electrónico:</strong> ${email}</p>
+                    <p><strong>Mensaje:</strong> ${mensaje}</p>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
+<div class="row justify-content-center">
+    <a href="/contacto"><button type="button" class="btn btn-primary btn-block">Volver al formulario de contacto</button></a>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

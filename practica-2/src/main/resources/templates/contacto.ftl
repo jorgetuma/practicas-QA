@@ -11,18 +11,18 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h2 class="text-center mt-5">Formulario de Contacto</h2>
-            <form>
+            <form id="contacto" method="post" action="/enviar">
                 <div class="form-group">
                     <label for="name">Nombre</label>
-                    <input type="text" class="form-control" id="name" placeholder="Ingrese su nombre">
+                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingrese su nombre">
                 </div>
                 <div class="form-group">
                     <label for="email">Correo Electrónico</label>
-                    <input type="email" class="form-control" id="email" placeholder="Ingrese su correo electrónico">
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Ingrese su correo electrónico">
                 </div>
                 <div class="form-group">
                     <label for="message">Mensaje</label>
-                    <textarea class="form-control" id="message" rows="4" placeholder="Ingrese su mensaje"></textarea>
+                    <textarea class="form-control" id="mensaje" name="mensaje" rows="4" placeholder="Ingrese su mensaje"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Enviar</button>
             </form>

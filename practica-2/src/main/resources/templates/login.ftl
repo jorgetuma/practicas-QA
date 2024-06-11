@@ -11,14 +11,14 @@
     <div class="row justify-content-center">
         <div class="col-md-6">
             <h2 class="text-center mt-5">Inicio de Sesión</h2>
-            <form>
+            <form id="login" method="post" action="/auth">
                 <div class="form-group">
                     <label for="username">Nombre de Usuario</label>
-                    <input type="text" class="form-control" id="username" placeholder="Ingrese su nombre de usuario">
+                    <input type="text" class="form-control" id="username" name="username" placeholder="Ingrese su nombre de usuario">
                 </div>
                 <div class="form-group">
                     <label for="password">Contraseña</label>
-                    <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Ingrese su contraseña">
                 </div>
                 <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
             </form>
