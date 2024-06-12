@@ -15,7 +15,7 @@
                 <p>${mensaje}</p>
             </div>
             <div class="text-center">
-                <a href="${link}" class="btn btn-primary">${boton}</a>
+                <a id="boton" href="${link}" class="btn btn-primary">${boton}</a>
             </div>
         </div>
     </div>
