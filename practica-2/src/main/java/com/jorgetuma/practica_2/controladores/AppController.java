@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/")
-public class appController {
+public class AppController {
 
     @GetMapping("/")
     public String index() {
@@ -29,16 +29,38 @@ public class appController {
 
     @PostMapping("auth")
     public String auth(@RequestParam("username") String username, @RequestParam("password") String password) {
-        System.out.println("Usuario:"+username);
-        System.out.println("Contraseña:"+password);
-        return "redirect:contacto";
+        if(username.equals("admin") && password.equals("admin") || username.equals("jt") && password.equals("jt")) {
+            return "redirect:contacto";
+        }
+        return "redirect:error-login";
     }
 
     @PostMapping("enviar")
     public String enviarContacto(@RequestParam("nombre") String nombre, @RequestParam("email") String email, @RequestParam("mensaje") String mensaje, Model model) {
+        if(nombre.isBlank() || email.isBlank() || mensaje.isBlank()) {
+            return "redirect:error-contacto";
+        }
         model.addAttribute("nombre", nombre);
         model.addAttribute("email", email);
         model.addAttribute("mensaje", mensaje);
         return "/ver-mensaje";
+    }
+
+    @GetMapping("error-login")
+    public String errorLogin(Model model) {
+        model.addAttribute("titulo", "Error al iniciar sesión");
+        model.addAttribute("mensaje", "Usuario no encontrado. Nombre de usuario o contraseña incorrecta");
+        model.addAttribute("boton","volver a intentarlo");
+        model.addAttribute("link", "/login");
+        return "/error";
+    }
+
+    @GetMapping("error-contacto")
+    public String errorContacto(Model model) {
+        model.addAttribute("titulo", "Error en formulario");
+        model.addAttribute("mensaje", "Algunas de los campos del formularios se encuentran vacios");
+        model.addAttribute("boton","volver al formulario de contacto");
+        model.addAttribute("link", "/contacto");
+        return "/error";
     }
 }
