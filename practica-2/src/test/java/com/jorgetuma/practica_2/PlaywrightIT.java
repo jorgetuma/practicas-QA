@@ -6,6 +6,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 
+import java.nio.file.Paths;
+
 public class PlaywrightIT {
     private static Playwright playwright;
     private static Browser browser;
@@ -32,10 +34,10 @@ public class PlaywrightIT {
         browserContext = browser.newContext();
 
         // Start tracing before creating / navigating a page.
-//        browserContext.tracing().start(new Tracing.StartOptions()
-//                .setScreenshots(true)
-//                .setSnapshots(true)
-//                .setSources(true));
+      browserContext.tracing().start(new Tracing.StartOptions()
+                      .setScreenshots(true)
+                      .setSnapshots(true)
+                      .setSources(true));
 
         page = browserContext.newPage();
     }
@@ -43,9 +45,9 @@ public class PlaywrightIT {
     @AfterEach
     void afterEach() {
         page.close();
-        // Stop tracing and export it into a zip archive.
-//        browserContext.tracing().stop(new Tracing.StopOptions()
-//                .setPath(Paths.get("trace.zip")));
+       //  Stop tracing and export it into a zip archive.
+        browserContext.tracing().stop(new Tracing.StopOptions()
+                .setPath(Paths.get("trace.zip")));
 
         browserContext.close();
     }
